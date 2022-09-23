@@ -71,7 +71,7 @@ class _MyHomePageState extends State<MyHomePage> {
               child: Text('An error has occurred!'),
             );
           } else if (snapshot.hasData) {
-            return UserWidget(snapshot.data!);
+            return UserWidget(snapshot.data);
           } else {
             return const Center(
               child: CircularProgressIndicator(),
