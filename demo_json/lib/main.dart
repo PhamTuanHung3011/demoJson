@@ -63,7 +63,7 @@ class _MyHomePageState extends State<MyHomePage> {
       appBar: AppBar(
         title: Text(widget.title),
       ),
-      body: FutureBuilder(
+      body: FutureBuilder<List<User>>(
         future: fetchUserData(http.Client()),
         builder: (context, snapshot) {
           if (snapshot.hasError) {
@@ -71,7 +71,7 @@ class _MyHomePageState extends State<MyHomePage> {
               child: Text('An error has occurred!'),
             );
           } else if (snapshot.hasData) {
-            return UserWidget(snapshot.data);
+            return UserWidget(snapshot.data!);
           } else {
             return const Center(
               child: CircularProgressIndicator(),
